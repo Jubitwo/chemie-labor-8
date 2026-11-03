@@ -1,0 +1,201 @@
+/* Chemie-Labor 8 – Gestaltung
+   Farben: Laborpapier hell, Tintenblau, Akzentfarbe je Kapitel (--k) */
+:root{
+  --papier:#f7f4ec; --karte:#ffffff; --tinte:#1d2a3a; --grau:#5b6573; --linie:#dcd6c8;
+  --blau:#2e86ab; --gruen:#2a9d55; --rot:#d62828; --gelb:#f4b400;
+  --k:#2e86ab; --radius:14px; --schatten:0 2px 0 rgba(29,42,58,.08),0 6px 18px rgba(29,42,58,.06);
+  --schrift:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  --titel:"Fredoka","Atkinson Hyperlegible",system-ui,sans-serif;
+  font-size:17px;
+}
+html.gross{font-size:20px}
+*{box-sizing:border-box}
+body{margin:0;background:var(--papier);color:var(--tinte);font-family:var(--schrift);line-height:1.55;
+  background-image:radial-gradient(rgba(29,42,58,.05) 1px,transparent 1px);background-size:22px 22px}
+a{color:var(--blau)}
+h1,h2,h3,h4{font-family:var(--titel);font-weight:600;line-height:1.2;margin:.2em 0 .5em}
+h1{font-size:2rem} h2{font-size:1.5rem} h3{font-size:1.2rem}
+
+/* Kopf */
+.kopf{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;
+  padding:.6rem 1.2rem;background:var(--tinte);color:#fff}
+.logo{color:#fff;text-decoration:none;font-family:var(--titel);font-size:1.3rem}
+.logo b{background:var(--gelb);color:var(--tinte);border-radius:6px;padding:0 .35em}
+.hauptnav{display:flex;gap:.25rem;flex-wrap:wrap;flex:1}
+.hauptnav a{color:#dfe7ef;text-decoration:none;padding:.35rem .7rem;border-radius:8px}
+.hauptnav a:hover,.hauptnav a.aktiv{background:rgba(255,255,255,.14);color:#fff}
+
+main{max-width:1060px;margin:0 auto;padding:1.4rem 1rem 3rem;outline:none}
+.fuss{text-align:center;color:var(--grau);font-size:.85rem;padding:2rem 1rem;border-top:1px solid var(--linie)}
+
+/* Knöpfe */
+.knopf{font:inherit;font-weight:700;border:0;border-radius:10px;padding:.6rem 1rem;cursor:pointer;
+  background:var(--k);color:#fff;box-shadow:0 3px 0 rgba(0,0,0,.2);text-decoration:none;display:inline-block}
+.knopf:active{transform:translateY(2px);box-shadow:0 1px 0 rgba(0,0,0,.2)}
+.knopf.klein{padding:.35rem .7rem;font-size:.9rem}
+.knopf.hell{background:#eef2f6;color:var(--tinte)}
+.knopf.gruen{background:var(--gruen)} .knopf.rot{background:var(--rot)}
+.knopf:disabled{opacity:.45;cursor:not-allowed}
+.kopf .knopf{background:#ffffff22}
+
+/* Karten */
+.karte{background:var(--karte);border-radius:var(--radius);box-shadow:var(--schatten);padding:1.2rem 1.4rem;margin:0 0 1.2rem;
+  border-top:5px solid var(--k)}
+.karte.ohne{border-top:0}
+.marke{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+  background:var(--k);color:#fff;border-radius:6px;padding:.1rem .5rem;margin-bottom:.4rem}
+
+/* Startseite */
+.held{display:grid;grid-template-columns:1.4fr 1fr;gap:1.2rem;align-items:center;margin-bottom:1.4rem}
+.held h1{font-size:2.4rem;margin-bottom:.3rem}
+.held .flasche{font-size:7rem;text-align:center;filter:drop-shadow(0 8px 10px rgba(0,0,0,.15))}
+.kapitelgitter{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1rem}
+.kachel{background:#fff;border-radius:var(--radius);box-shadow:var(--schatten);padding:1rem;text-decoration:none;color:inherit;
+  border-left:7px solid var(--k);display:flex;flex-direction:column;gap:.3rem;transition:transform .15s}
+.kachel:hover{transform:translateY(-3px)}
+.kachel .nr{font-family:var(--titel);color:var(--k);font-size:.95rem}
+.kachel .ic{font-size:2rem}
+.kachel h3{margin:0}
+.kachel small{color:var(--grau)}
+.fortschritt{height:8px;background:#eee;border-radius:5px;overflow:hidden;margin-top:auto}
+.fortschritt span{display:block;height:100%;background:var(--k)}
+
+/* Kapitelseite */
+.kapkopf{display:flex;gap:1rem;align-items:center;margin-bottom:1rem}
+.kapkopf .ic{font-size:3rem;background:#fff;border-radius:50%;width:84px;height:84px;display:grid;place-items:center;box-shadow:var(--schatten)}
+.kapnav{position:sticky;top:56px;z-index:10;display:flex;gap:.4rem;flex-wrap:wrap;background:var(--papier);padding:.5rem 0;margin-bottom:.8rem}
+.kapnav a{font-size:.85rem;text-decoration:none;background:#fff;border:1px solid var(--linie);color:var(--tinte);border-radius:20px;padding:.2rem .7rem}
+.kapnav a:hover{border-color:var(--k);color:var(--k)}
+.ziele li{list-style:none;margin:.2rem 0}
+.ziele li::before{content:"🎯 "}
+.einstieg{background:linear-gradient(135deg,#fff 60%,color-mix(in srgb,var(--k) 12%,#fff))}
+.denk{background:#fff8e1;border-left:5px solid var(--gelb);padding:.7rem 1rem;border-radius:8px;margin-top:.8rem}
+.merke{background:color-mix(in srgb,var(--k) 9%,#fff);border:2px dashed var(--k)}
+.merke li{margin:.35rem 0;font-weight:700}
+.buch{display:flex;gap:.8rem;align-items:center;background:#fff;border:1px solid var(--linie);border-radius:10px;padding:.6rem .9rem;margin:.6rem 0 1rem;font-size:.92rem}
+.buch .ic{font-size:1.6rem}
+.formel{font-family:ui-monospace,Consolas,monospace;background:#f1f4f8;border-radius:8px;padding:.45rem .8rem;display:inline-block;font-weight:700}
+.warn{background:#fdecea;border-left:5px solid var(--rot);padding:.6rem .9rem;border-radius:8px}
+.tab{border-collapse:collapse;width:100%;margin:.5rem 0;font-size:.95rem}
+.tab th,.tab td{border:1px solid var(--linie);padding:.4rem .55rem;text-align:left;vertical-align:top}
+.tab th{background:#f1f4f8}
+.vorlesen{float:right;margin-left:.5rem}
+.regeln li{margin:.4rem 0}
+.balken{display:flex;height:34px;border-radius:8px;overflow:hidden;font-size:.85rem;color:#fff;font-weight:700}
+.balken span{display:flex;align-items:center;justify-content:center;white-space:nowrap;overflow:hidden}
+
+/* Fremdwort-Knopf */
+.begriff{font:inherit;background:none;border:0;padding:0;color:var(--blau);border-bottom:2px dotted var(--blau);cursor:help;font-weight:700}
+.begriff:hover{background:#e7f2f8}
+.popup{position:fixed;inset:0;background:rgba(15,25,35,.45);display:grid;place-items:center;z-index:100;padding:1rem}
+.popup[hidden]{display:none}
+.popup-karte{background:#fff;border-radius:16px;max-width:460px;width:100%;padding:1.3rem 1.4rem;position:relative;box-shadow:0 20px 50px rgba(0,0,0,.25);border-top:6px solid var(--blau)}
+.popup-zu{position:absolute;right:.6rem;top:.5rem;border:0;background:none;font-size:1.3rem;cursor:pointer}
+.popup-knoepfe{display:flex;gap:.5rem;flex-wrap:wrap}
+
+/* Beispiel */
+.schritt{background:#f6f8fb;border-radius:10px;padding:.55rem .8rem;margin:.4rem 0;border-left:4px solid var(--k)}
+.schritt[hidden]{display:none}
+
+/* Aufgaben */
+.aufgabe{background:#fff;border:1px solid var(--linie);border-radius:12px;padding:1rem 1.1rem;margin:.9rem 0;position:relative}
+.aufgabe.geloest{border-color:var(--gruen);box-shadow:inset 5px 0 0 var(--gruen)}
+.aufgabe .anr{font-family:var(--titel);background:var(--k);color:#fff;border-radius:8px;padding:.05rem .5rem;margin-right:.4rem}
+.aufgabe .ah{font-size:.78rem;color:var(--grau);float:right}
+.aufgabe .frage{font-weight:700;margin:.2rem 0 .6rem}
+.aufgabe .knoepfe{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem}
+.rueck{margin-top:.6rem;padding:.5rem .8rem;border-radius:8px;font-weight:700}
+.rueck.gut{background:#e6f6ec;color:#17643a}
+.rueck.halb{background:#fff4d6;color:#7a5800}
+.rueck.schlecht{background:#fdecea;color:#8f1d1d}
+.muster{background:#f1f4f8;border-radius:8px;padding:.6rem .8rem;margin-top:.6rem}
+.option{display:flex;gap:.5rem;align-items:flex-start;padding:.35rem .5rem;border-radius:8px;cursor:pointer}
+.option:hover{background:#f4f6f9}
+.option.richtig{background:#e6f6ec}.option.falsch{background:#fdecea}
+.wf-zeile{display:grid;grid-template-columns:1fr auto auto;gap:.6rem;align-items:center;padding:.3rem 0;border-bottom:1px dashed var(--linie)}
+.wf-zeile label{display:flex;gap:.2rem;align-items:center;font-size:.9rem}
+.zu-zeile,.reihe-zeile{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;align-items:center;margin:.35rem 0}
+.reihe-zeile{grid-template-columns:5.2rem 1fr}
+select,input[type=text],textarea{font:inherit;padding:.4rem .5rem;border:2px solid var(--linie);border-radius:8px;background:#fff;max-width:100%}
+select:focus,input:focus,textarea:focus{border-color:var(--k);outline:none}
+input.luecke{width:9.5rem;margin:.1rem .2rem}
+input.luecke.ok,select.ok{border-color:var(--gruen);background:#effaf2}
+input.luecke.nein,select.nein{border-color:var(--rot);background:#fdf0ef}
+textarea{width:100%;min-height:5rem}
+.wortliste{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.5rem}
+.wortliste span{background:#eef2f6;border-radius:6px;padding:.1rem .5rem;font-size:.9rem}
+
+/* Labor */
+.labor{background:#13202e;color:#e8eef4;border-radius:var(--radius);padding:1.2rem;border-top:5px solid var(--k)}
+.labor h3,.labor h4{color:#fff}
+.labor .knopf.hell{background:#2a3b4e;color:#fff}
+.labor select,.labor input{background:#1f3044;color:#fff;border-color:#36506b}
+.labortisch{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:.8rem}
+.labortisch .feld{background:#1b2b3d;border-radius:12px;padding:1rem}
+.anzeige{font-family:ui-monospace,Consolas,monospace;background:#0b141e;border-radius:8px;padding:.6rem .8rem;color:#9ff0b6;min-height:2.4rem}
+.labor canvas,.labor svg{max-width:100%;display:block;margin:0 auto;background:#0b141e;border-radius:10px}
+.protokoll{background:#0b141e;border-radius:8px;padding:.5rem .8rem;max-height:180px;overflow:auto;font-size:.88rem}
+.protokoll{padding-left:1.6rem}
+.protokoll li{margin:.15rem 0}
+.chips{display:flex;gap:.4rem;flex-wrap:wrap}
+.chip{background:#2a3b4e;color:#fff;border:2px solid transparent;border-radius:20px;padding:.3rem .75rem;cursor:pointer;font:inherit;font-size:.9rem}
+.chip.an{border-color:#9ff0b6;background:#1f4d36}
+.chip:disabled{opacity:.4}
+.slider{width:100%}
+.laborfrei{background:#fff;color:var(--tinte);border-radius:12px;padding:.2rem .9rem .8rem;margin-top:1rem}
+.labor .laborfrei select,.labor .laborfrei input,.labor .laborfrei textarea{background:#fff;color:var(--tinte);border-color:var(--linie)}
+.labor .laborfrei .knopf.hell{background:#eef2f6;color:var(--tinte)}
+
+/* Gefahrensymbole */
+.piktos{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.7rem;margin:.6rem 0}
+.pikto{display:flex;flex-direction:column;align-items:center;text-align:center;font-size:.85rem;gap:.3rem}
+.raute{width:64px;height:64px;transform:rotate(45deg);border:5px solid #d00;background:#fff;display:grid;place-items:center;margin:10px}
+.raute span{transform:rotate(-45deg);font-size:1.7rem}
+.labor .pikto{color:#e8eef4}
+
+/* Teilchenbilder */
+.zustaende{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;font-size:.9rem}
+.zustaende>div{background:#f6f8fb;border-radius:10px;padding:.6rem;text-align:center}
+.tm{height:90px;margin:.4rem auto;width:110px;border:2px solid #9aa7b6;border-top:0;border-radius:0 0 8px 8px;position:relative;
+  background-repeat:no-repeat}
+.tm.fest{background-image:radial-gradient(circle,var(--k) 6px,transparent 7px);background-size:16px 16px;background-repeat:repeat;background-position:3px 3px}
+.tm.fluessig{background:radial-gradient(circle at 15% 80%,var(--k) 6px,transparent 7px),radial-gradient(circle at 35% 70%,var(--k) 6px,transparent 7px),radial-gradient(circle at 55% 85%,var(--k) 6px,transparent 7px),radial-gradient(circle at 75% 72%,var(--k) 6px,transparent 7px),radial-gradient(circle at 88% 88%,var(--k) 6px,transparent 7px),radial-gradient(circle at 25% 52%,var(--k) 6px,transparent 7px),radial-gradient(circle at 65% 55%,var(--k) 6px,transparent 7px),radial-gradient(circle at 45% 60%,var(--k) 6px,transparent 7px)}
+.tm.gas{background:radial-gradient(circle at 20% 20%,var(--k) 6px,transparent 7px),radial-gradient(circle at 75% 35%,var(--k) 6px,transparent 7px),radial-gradient(circle at 40% 75%,var(--k) 6px,transparent 7px),radial-gradient(circle at 85% 85%,var(--k) 6px,transparent 7px)}
+.atomkasten{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+.atomkasten>div{background:#f6f8fb;border-radius:10px;padding:.7rem}
+
+/* pH-Skala */
+.phskala{display:grid;grid-template-columns:repeat(15,1fr);border-radius:8px;overflow:hidden;text-align:center;font-weight:700;font-size:.85rem}
+.phskala span{padding:.45rem 0;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.4)}
+
+/* Mini-Periodensystem */
+.pse{display:grid;grid-template-columns:2.2rem repeat(8,1fr);gap:3px;font-size:.78rem;margin:.6rem 0}
+.pse div{background:#eef2f6;border-radius:5px;padding:.2rem;text-align:center;min-height:2.6rem}
+.pse .kopfz{background:none;font-weight:700;min-height:auto}
+.pse .el b{display:block;font-size:1rem}
+.pse .met{background:#dbeafe}.pse .nmet{background:#fde68a}.pse .edel{background:#e9d5ff}
+.labor .pse div{background:#1f3044;color:#fff}.labor .pse .kopfz{background:none}
+.labor .pse .met{background:#24476e}.labor .pse .nmet{background:#6b5313}.labor .pse .edel{background:#4c2a6e}
+.labor .pse .el.wahl{outline:3px solid #9ff0b6;cursor:pointer}
+.pse .el.klickbar{cursor:pointer}
+
+/* Selbsttest / Checkliste */
+.check li{list-style:none;display:flex;gap:.6rem;align-items:center;margin:.3rem 0}
+.smileys button{font-size:1.3rem;background:none;border:2px solid transparent;border-radius:50%;cursor:pointer;width:2.3rem;height:2.3rem}
+.smileys button.an{border-color:var(--k);background:#f1f4f8}
+
+.woerter{columns:2;column-gap:2rem}
+.woerter div{break-inside:avoid;margin-bottom:.8rem}
+.suche{width:100%;padding:.7rem;font-size:1.05rem;margin-bottom:1rem}
+.versuchkarte ol li{margin:.3rem 0}
+
+@media (max-width:760px){
+  .held,.labortisch,.atomkasten{grid-template-columns:1fr}
+  .held .flasche{display:none}
+  .zustaende{grid-template-columns:1fr}
+  .woerter{columns:1}
+  .zu-zeile{grid-template-columns:1fr}
+  .wf-zeile{grid-template-columns:1fr auto auto}
+  .kapnav{top:96px}
+}
+@media print{.kopf,.kapnav,.knopf,.fuss{display:none}body{background:#fff}}
